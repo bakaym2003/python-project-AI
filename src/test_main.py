@@ -1,11 +1,20 @@
-from main import greet
+from fastapi.testclient import TestClient
+from main import app
 
+client = TestClient(app)
 
-def test_greet_default():
-    """Test the default greeting."""
-    assert greet() == "Hello, World!"
+def test_read_root():
+    """Test the root endpoint."""
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello World"}
 
-
-def test_greet_custom_name():
-    """Test greeting with a custom name."""
-    assert greet("Python") == "Hello, Python!" 
+def test_delete_application():
+    """Test deleting an application."""
+    candidate_id = "abc123"
+    response = client.delete(f"/applications/{candidate_id}")
+    assert response.status_code == 200
+    assert response.json() == {
+        "status": "success",
+        "message": f"Application for {candidate_id} has been deleted"
+    } 

@@ -20,10 +20,7 @@ def read_root():
 def postApplication ():
     return {"message": "Application successfully received"}
 
-@app.post("/application/{candidate_id}")
-def applyForCandidate (candidate_id: str):
-    return {"message": f"Application for candidateID: {candidate_id} successfully submitted"
-}
+@app.post("/application/{candidate_id}")def applyForCandidate (candidate_id: str):    return {"message": f"Application for candidateID: {candidate_id} successfully submitted"}
 
 
 @app.get("/applications")
