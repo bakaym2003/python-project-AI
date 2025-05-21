@@ -2,3 +2,10 @@ pytest==7.4.3
 black==23.11.0
 flake8==6.1.0
 python-dotenv==1.0.0
+
+fastapi==0.88.0
+sqlalchemy==2.0.30
+asyncpg==0.29.0
+psycopg2-binary==2.9.9
+uvicorn==0.20.0
+starlette==0.22.0
