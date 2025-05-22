@@ -1,10 +1,10 @@
-from fastapi import FastAPI, Query, Path, Depends
+from fastapi import FastAPI, Query, Path, Depends, HTTPException
 from pydantic import BaseModel
 from typing import Optional, List
 from sqlalchemy import create_engine, Column, Integer, String, text
 from sqlalchemy.orm import sessionmaker, Session
-from schemas.company_schemas import CompanyOut, CompanyCreate
-from schemas.job_posting_schemas import JobPostingOut, JobPostingCreate
+from src.schemas.company_schemas import CompanyOut, CompanyCreate
+from src.schemas.job_posting_schemas import JobPostingOut, JobPostingCreate
 
 
 # SQLAlchemy setup 
